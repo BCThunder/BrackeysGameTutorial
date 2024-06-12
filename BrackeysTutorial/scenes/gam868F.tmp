@@ -1,13 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://ciqymr752elvl"]
+[gd_scene load_steps=16 format=3 uid="uid://ciqymr752elvl"]
 
-[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_ay1i6"]
 [ext_resource type="PackedScene" uid="uid://bqqiarj12g0n7" path="res://scenes/player.tscn" id="1_xhhft"]
 [ext_resource type="Texture2D" uid="uid://b1af3rekyix5e" path="res://assets/sprites/world_tileset.png" id="2_r8w74"]
 [ext_resource type="PackedScene" uid="uid://b20cf236o18qa" path="res://scenes/platform.tscn" id="3_7jquq"]
 [ext_resource type="PackedScene" uid="uid://b54gn8mg46gjj" path="res://scenes/coin.tscn" id="4_inbpb"]
 [ext_resource type="PackedScene" uid="uid://b52bf15op7bux" path="res://scenes/kill_zone.tscn" id="5_42e2d"]
 [ext_resource type="PackedScene" uid="uid://cs33ewx8o2qks" path="res://scenes/slime.tscn" id="6_x4kjh"]
-[ext_resource type="FontFile" uid="uid://c8key1k30f5ny" path="res://assets/fonts/PixelOperator8.ttf" id="7_hdra5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_usnnr"]
 texture = ExtResource("2_r8w74")
@@ -467,7 +465,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(832, -26), Vector2(832, -153)]
+"values": [Vector2(832, -47), Vector2(832, -153)]
 }
 
 [sub_resource type="Animation" id="Animation_vlehh"]
@@ -493,10 +491,6 @@ _data = {
 
 [node name="Game" type="Node2D"]
 
-[node name="GameManager" type="Node" parent="."]
-unique_name_in_owner = true
-script = ExtResource("1_ay1i6")
-
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-3, 1)
 tile_set = SubResource("TileSet_wfk01")
@@ -512,7 +506,6 @@ position = Vector2(5, -1)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(6, -7)
 zoom = Vector2(4, 4)
-process_callback = 0
 limit_bottom = 55
 limit_smoothed = true
 position_smoothing_enabled = true
@@ -564,24 +557,4 @@ position = Vector2(488, -184)
 position = Vector2(504, -184)
 
 [node name="Slime" parent="." instance=ExtResource("6_x4kjh")]
-position = Vector2(839, 17)
-
-[node name="Labels" type="Node" parent="."]
-
-[node name="Label" type="Label" parent="Labels"]
-offset_left = 102.0
-offset_top = -11.0
-offset_right = 193.0
-theme_override_fonts/font = ExtResource("7_hdra5")
-theme_override_font_sizes/font_size = 8
-text = "Space to jump.
-"
-
-[node name="Label2" type="Label" parent="Labels"]
-offset_left = 838.0
-offset_top = -10.0
-offset_right = 929.0
-offset_bottom = 1.0
-theme_override_fonts/font = ExtResource("7_hdra5")
-theme_override_font_sizes/font_size = 8
-text = "A sticky foe?"
+position = Vector2(839, 16)
